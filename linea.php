@@ -1,8 +1,4 @@
-<?php
-include_once 'carton.php';
-include_once 'linea.php';
-include_once 'juego.php';
-?>  
+
 <?php
 
 class linea {
@@ -70,14 +66,14 @@ class linea {
         for ($i = 0; $i < 5; $i++) {
             $numero = $this->numeros[$i];
             if ($numero < 10) {
-                $numero = '0' . $numero;
+                $numero = '0' . $numero;//Por cuestion de visualizacion si el numero es menor a 10 le sumamos un 0
             }
-            if ($this->marcados[$i] == TRUE) {
+            if ($this->marcados[$i] == TRUE) {//Marcamos los numero que vayan saliendo
                 $resultado = $resultado .
-                        '<div><b class="danger fw-bold">' . $numero . '</b></div>';
+                        '<div><b class="danger fw-bold">' . $numero . '</b></div>';//Lo marcamos de color rojo
             } else {
                 $resultado = $resultado .
-                        '<div class="dark fw-bold">' . $numero . '</div>';
+                        '<div class="dark fw-bold">' . $numero . '</div>';//Si no ha salido lo dejamos de color negro
             }
         }
         $resultado = $resultado . '</section>';

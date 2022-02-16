@@ -1,7 +1,7 @@
 <?php
-include_once 'carton.php';
-include_once 'linea.php';
-include_once 'juego.php';
+include_once './carton.php';
+include_once './linea.php';
+include_once './juego.php';
 session_start();
 ?>            
 <!DOCTYPE html>
@@ -10,6 +10,7 @@ session_start();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
         <title>Bingo</title>
         <style>
             section{	display:flex;}
@@ -37,7 +38,7 @@ session_start();
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
-                justify-content: space-around;
+                justify-content: space-evenly;
                 padding: 2px;
                 margin:5px;
 
@@ -63,6 +64,10 @@ session_start();
                 align-items: center;
                 max-width: 55%;
             }
+            .verti {
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
+            }
 
         </style>
 
@@ -70,15 +75,18 @@ session_start();
     <body>
         <div class="container mx-auto d-flex row align-items-center  justify-content-center">
             <div class="col-auto d-flex row align-items-center  justify-content-center">
-                <img class="banner d-flex justify-content-center " src="letras.png" alt="alt"/> 
+                <img class="banner d-flex justify-content-center " src="img/letras.png" alt="alt"/> 
 
             </div>
 
 
+        </div >
+        <div class=" container row mx-auto">
+            
             <?php
 //------
 
-            $juego = $_SESSION['miJuego']; //TGraemos la session iniciada en el la pagina princiapl
+            $juego = $_SESSION['miJuego']; //Traemos la session iniciada en el la pagina princiapl
             if (isset($_REQUEST['accion'])) {
                 $laAccion = $_REQUEST['accion'];
                 if ($laAccion == 'Sacar Bola') {
@@ -94,7 +102,7 @@ session_start();
 //mostrar bolas
             $lasBolas = $juego->getBolas();
             $losCartones = $juego->getCartones();
-            
+
             echo '<span class="fs-2 fw-bold">BOLAS</span> <br>';
             $htmlBolas = '<section id="lasBolas" class="rounded-circle">';
             for ($c = 0; $c < sizeof($lasBolas); $c++) {
@@ -121,8 +129,9 @@ session_start();
             }
             echo '</form>';
             ?>
-        </div>
-
+            
+</div>
     </body>
+    <footer class="text-dark fst-italic fw-bold font-monospace"><center><i>Creado por Fulgencio Marín Talavera&COPY; para DWES</i></center></footer>
 </html>
 

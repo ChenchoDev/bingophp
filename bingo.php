@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
         <title>Bingo</title>
         <style>
             section{	display:flex;}
@@ -31,9 +32,9 @@
 
             <div class="container d-flex align-items-center justify-content-center">
                 <?php
-                echo '<img src="bingo.jpg" alt="alt" class="w-50"/>';
+                echo '<img src="img/bingo.jpg" alt="alt" class="w-50"/>';
                 echo '<div class="row-6 align-items-center justify-content-center"  >';
-                echo '<form action="JuegoPrincipal.php" ' .
+                echo '<form action="juegoPrincipal.php" ' .
                 ' method="POST">';
 
                 echo '<br><input type="submit" name="jugar" value="Jugar" class="btn btn-info  btn-lg fs-1 fw-bold  position-absolute top-60 start-50 translate-middle ">';
@@ -57,8 +58,10 @@
 
     $miJuego = new juego();
     $_SESSION['miJuego'] = $miJuego;
+
+    
     ?>
 
-
+<footer class="text-dark fst-italic fw-bold font-monospace"><center><i>Creado por Fulgencio Marín Talavera&COPY; para DWES</i></center></footer>
 </html>
 
